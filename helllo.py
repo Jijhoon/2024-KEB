@@ -1,13 +1,10 @@
-#(100°F-32) * 5/9 = 37.778°C 화씨를 섭씨로 바꾸기
-print("If you want to exit, press write any word")
-menu = input("1)Fahrenheit -> Celsius \n2)Celsius -> Fahrenheit \n3)Quit\n write what you want : ")
-if menu == '1' :
-    Fahrenheit = float(input('Input Fahrenheit : '))
-    print(f'Fahrenheit : {Fahrenheit}F, Celsius : {((Fahrenheit-32.0) * 5/9):.4f}C')
+#문자열 추출하기
+letter = "Hi nice to meet you. Try to break me"
+print(letter[3:8]); print(letter[5:17:3]); print(letter[-1:2:-1])
 
-elif menu == '2' :
-    Celsius = float(input('Input Celsius : '))
-    print(f'Celsius : {Celsius}C, Fahrenheit : {((Celsius*9/5) +32.0):.4f}F')
+#문자열 길이 len()
+print('\n\n' + "the number of letter's length : "+str(len(letter))) # str을 안 붙이면 문자열 + 숫자가 되면서 오류가 발생하게 된다.
 
-else :
-    print('system is closed')
+The_word = input("write any word : ")
+print("How longest what you write? \n: "+ str(len(The_word)))
+
