@@ -1,10 +1,10 @@
-#문자열 추출하기
-letter = "Hi nice to meet you. Try to break me"
-print(letter[3:8]); print(letter[5:17:3]); print(letter[-1:2:-1])
+letter = input('Input alphabet letter : ')
+# vowels = {'a', 'e', 'i', 'o','u'} // set. set은 바꿀수 없는 가변상태로 되어있다.
+vowels = "aeiou" # str 이경우에는 중간 문자를 바꿀 수 있다.
+print(type(vowels))
+if letter in vowels : # in이 함수가 되는 것이다.
+    print(f'{letter} is a vowel!')
+else :
+    print(f'{letter} is a consonant!')
 
-#문자열 길이 len()
-print('\n\n' + "the number of letter's length : "+str(len(letter))) # str을 안 붙이면 문자열 + 숫자가 되면서 오류가 발생하게 된다.
-
-The_word = input("write any word : ")
-print("How longest what you write? \n: "+ str(len(The_word)))
 
