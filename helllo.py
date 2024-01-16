@@ -7,7 +7,7 @@ class Pokemon:
         self.pokemon_type = pokemon_type
         self.hp = hp
         self.skills = []
-        
+
     def get_info(self):
         return f"{self.name} {self.pokemon_type} {self.hp}"
 
@@ -16,18 +16,18 @@ class Pokemon:
         print(f"{self.name} attacked {enemy}, causing {damage} damage!")
         try:
             enemy.hp -= damage
-
             print(f"{enemy} now has {enemy.hp} HP")
         except:
             pass
-        
+
 
 class Skill:
     def attack(self, enemy):
         pass
 
-# TODO: 스킬 
-class Flame(Skill): 
+
+# TODO: 스킬
+class Flame(Skill):
     def flamethrower(self, enemy):
         print(f"{self.name} used the skill 'Flamethrower' on {enemy}")
 
@@ -97,7 +97,7 @@ class Master:
             Squitle("Squitle", "(Water)", "40"),
             Dialga("Dialga", "(Dragon)", "100"),
         ]
-    
+
     def show_pokemons(self):
         for pokemon in self.pokemons:
             print(f"{pokemon.name} {pokemon._type} {pokemon.hp}", end="\t")
@@ -126,7 +126,7 @@ def main():
     master = Master(name)
 
     print("I will tell you some information.\t" "You have 4 Pokemons\n")
-    master.show_pokemons()  
+    master.show_pokemons()
     print("Now, let's go on a adventure")
 
     selection = int(
@@ -141,18 +141,17 @@ def main():
     enemy = get_random_enemy()
 
     print(f"A wild {enemy.get_info()} appeared in {place}")
-    
 
     choice = int(input("What will you do? \n1)Fight 2)Runway \n :"))
-    
+
     if choice == 1:
         master.show_pokemons()
         choice = int(input("Choose your pokemon! \n :"))
         pokemon = master.pokemons[choice - 1]
-        
+
         while True:
-            pass           
-            
+            pass
+
     elif choice == 2:
         print("You are lost...\n You lose...")
         return
@@ -207,7 +206,7 @@ while True:
             if battle1 == 1:
                 Pokemon.attack(p4, enemy)
             elif battle1 == 2:
-                Dragon.hyper_beam(p4, enemy)
+                    Dragon.hyper_beam(p4, enemy)
 
     else:
         print("You are lost...\n You lose...")
