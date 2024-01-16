@@ -1,18 +1,15 @@
-# prime number
-number = int(input("Input number : "))
-is_prime = True # integer type -> bool
-if number < 2:
-    print(f'{number} is not prime number')
-else:
-    i = 2
-    while i < number:
-        if number % i == 0:
-            is_prime = False # remove +
-            break
-        #print(i, end=' ') # 계산하는 과정을 보여줌.
-        i = i + 1
+#for문
+word = ("a1b2c3d")
+for letter in word:
+    print(letter)
 
-    if is_prime: # remove ==
-        print(f'{number} is prime number')
-    else:
-        print(f'{number} is not prime number')
+print()  # 줄바꿈을 하게 한다.
+
+univ =("inharkkrrm")
+for letter in univ:
+    print(letter, end=" ")
+
+print()
+
+for k in range(2, len(univ),3): #0부터 시작해서 1만큼의 step 생략가능 range(len(univ))
+    print(univ[k], end=" ")
