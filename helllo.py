@@ -4,7 +4,8 @@ is_prime = True # integer type -> bool
 if number < 2:
     print(f'{number} is not prime number')
 else:
-    for i in range(2, number):
+    i = 2
+    while i < number:
         if number % i == 0:
             is_prime = False # remove +
             break
