@@ -1,29 +1,16 @@
-#(100°F-32) * 5/9 = 37.778°C 화씨를 섭씨로 바꾸기
+#university = r"Inha\nuniversity" # r(로스팅)을 문자열 앞에 붙이면 \n이 줄바꿈을 하지 않고 그대로 나오게 된다.
+#print(university)
 
-while True :
-    menu = input(
-        "\n\n1)Fahrenheit -> Celsius "
-        "\n2)Celsius -> Fahrenheit "
-        "\n3)Quit\n write what you want : "
-        )
-    if menu == '1' :
-        Fahrenheit = float(input('Input Fahrenheit : '))
-        print(
-            f'\nFahrenheit : {Fahrenheit}F, '
-            f'Celsius : {((Fahrenheit-32.0) * 5/9):.4f}C'
-            )
-        print(menu)
-    elif menu == '2' :
-        Celsius = float(input('Input Celsius : '))
-        print(
-            f'\nCelsius : {Celsius}C, '
-            f'Fahrenheit : {((Celsius*9/5) +32.0):.4f}F'
-            )
-        print(menu)
-    elif menu == '3':
-        print("Good Bye! See you again"); break
-    else :
-        print('You write the wrong number. Try again!')
+#number1 = str(input("first number :")) # str이 없다면 그냥 숫자끼리 더해짐.
+#number2 = input("second number : ") # str() -> 문자열로 바꾸는 함수.
+#print(number1, number2) # concatenation
+#print(number1 * 3) #duplication
+#print(number1 + 3) #type error -> 문자열 + 숫자.
+#문자열을 추출할 때 교체를 하고 싶다!
+name = "Henny"
+name.replace( "H",  "P") # 이거는 안 바뀌는데?
 
+print(name)
+print("P" + name[1::1]) # [이상:미만:차례]!@!!!@!@!@!  이상(start) 미만(end) // 차례(step)는 0부터 X 1부터 시작한다.
 
 
