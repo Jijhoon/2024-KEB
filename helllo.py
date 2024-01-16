@@ -1,15 +1,26 @@
-#Split 문자열을 분리해서 리스트에 담는다 (매우 중요)
+#replace 대체하기.
 course = "2024 KEB bootcamp"
-#print(course)
-#list_course = course.split()   #['2024', 'KEB', 'bootcamp'] 띄어쓰기를 한 것을 기준으로 3개로 분리된다.
-#list_course = course.split('B')   #['2024 KE', ' bootcamp'] B를 기준으로 나뉜다.
-#print(list_course)
+print(course)
+print(course.replace('KEB', 'Inha'))
+# 2024 Inha bootcamp // 여기서는 잠깐 변화된거다. course = course.replace()를 지정해줘야 완전 변화됨.
+print(course) #2024 KEB bootcamp 다시 나타남
 
-numbers = input("first_number second_number : ").split() #numbers : ["first_number", "second_number"]
-#print(numbers[0] + numbers[1]) #concatenation 문자열이 더해진 상태가 된다.
-print(int(numbers[0]) + int(numbers[1])) #arithmetic operation    [첫번째 방 + 두번째 방]
+course = course.replace('KEB', 'Inha', 10) # 2024 Inha bootcamp // count는 up to 개념 ~개까지 교환
+print(course)
+#strip 양쪽의 공간제거. lstip 왼쪽의 공간제거. rstrip 오른쪽의 공간제거
+world = "      earth        "
+print(world)
+print(world.strip())
+new_world = "!!!!earth!!!!"
+print(new_world)
+print(new_world.strip('!'))
+nice_world = "!@#$****@@!!#earth#!@#@!@#$@@***" #다른 언어가 한개라도 껴 있으면 제대로 안 지워진다. 예를들어 중간에 %, ^등이 껴잇으면 달라짐.
+print(nice_world)
+print(nice_world.strip("!#$@*"))
 
-#Join 문자열 -> 리스트로 변환한다.
-subjects = ["pyrhon", 'c++', "database"]
-subjects_string = ' / '.join(subjects) #(공백)/(공백)을 사이에 끼워넣은 상태로 list안의 방들이 합쳐진다.
-print("합쳐진 모습 : " + subjects_string) #합쳐진 모습 : pyrhon / c++ / database
+#순서찾는 함수 find, index // find는 찾지 못했을 때 -1을 출력 -> if문을 통해서 print 가능.
+# index는 ValueError : substring not found        find와 index는 결과를 찾지 못했을 때 달라진다.
+foem = "hello nice to meetddd sada you the coke fsdaasdasdasdasmellon here you are."
+word = "the"
+print(foem.find(word))# the는 앞에서부터 23번째이다.
+print(foem.rfind(word))
