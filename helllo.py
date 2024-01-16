@@ -9,6 +9,7 @@ else:
             is_prime = False # remove +
             break
         #print(i, end=' ') # 계산하는 과정을 보여줌.
+        i = i + 1
 
     if is_prime: # remove ==
         print(f'{number} is prime number')
