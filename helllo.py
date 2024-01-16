@@ -12,4 +12,4 @@ for letter in univ:
 print()
 
 for k in range(2, len(univ),3): #0부터 시작해서 1만큼의 step 생략가능 range(len(univ))
-    print(univ[k], end=" ")
+    print(univ[k], end=" ") #something special!
