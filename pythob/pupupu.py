@@ -13,7 +13,7 @@ drinks_foods_keys = list(drinks_foods)
 # print(drinks_food_keys)
 #print(random.choice(drinks_foods_keys)) #random으로 key 나오기.
 while True:
-    menu = input('select following menu in number.'
+    menu = input('\nselect following menu in number.'
                  f'\n1){drinks_foods_keys[0]} '
                  f'2){drinks_foods_keys[1]} '
                  f'3){drinks_foods_keys[2]} '
@@ -39,7 +39,6 @@ while True:
     elif menu == '7':
         print("system off")
         break
-
 
     else:
         print("That's ill-advised number")
