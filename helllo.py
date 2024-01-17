@@ -49,6 +49,7 @@ while True :
                     if number % i == 0:
                         is_prime = False
                         break
+
                 if is_prime: print(number, end=' ')
         print()
     elif menu == '5':
