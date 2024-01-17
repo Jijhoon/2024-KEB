@@ -1,29 +1,46 @@
-t0 = 5 #int
-t1 = (5) #int
-t2 = 5, #tuple
-t3 = (5,) #tuple
-t4 = (5, 7) #tuple
-t5 = 5, 7 #tuple
-print(type(t0),type(t1),type(t2),type(t3),type(t4),type(t5))
-t6 = "python", "kim" # tuple packing
-print(t6[1])
-subject, prof = t6 # unpacking -> subject에는 python이 들어가고, prof에는 kim이 들어간다.
-# #// packing과 unpackin의 개수가 같아야 한다. 다르면 ValueError
+subjects = [
+    "C++",
+    "Java",
+    "Python"
+    ]
+print(subjects)
+print(subjects[::-1]) # ['Python', 'Java', 'C++'] 이 순간만 리스트를 바꾼다.
+print(subjects) #['C++', 'Java', 'Python'] 리스트의 원본은 그대로 있음.
+subjects.reverse() # 리스트의 원본 자체를 거꾸로 바꾼다.
+print(subjects) # ['Python', 'Java', 'C++']
 
-print(prof)
+print()
 
-t7 = () # tuple
-t8 = tuple() #tuple
-t9 = 1, 2, 3
-t10 = 3, 51235412
-print(t9 == t10) # tuple간의 비교연산이 가능하다. -> 비교연산을 하면 False와 True로 return된다.
-print(t9 > t10)
-t11 = 4.43,
-t12 = 3.97, 4.1, 3.27
-print(id(t11))
-t11 += t12
-print(id(t11))
-print(t11)
-print(list('c a t . ,')) #문자열을 리스트 형태로 바꿨다.
-print(list(t9)) # tuple은 변하지 않는 값이기 때문에 list로 바꾼 뒤 변화를 주고 다시 tuple로 만든다.
-                # 이때 만들어진 tuple은 기존의 tuple과 메모리 저장된 곳이 다르다.
+subjects.append("NEW") #리스트의 '마지막'에 문자열을 추가한다.
+print(subjects)
+subjects.insert(2, "third") # 3번째 자리에 문자열을 추가적으로 집어넣는다.
+print(subjects)
+
+print()
+
+subsubject = "Math", "Society"
+print(subjects.append(subsubject))
+print(subjects)
+subjects[2] = "modified"
+print(subjects)
+print(subjects[-1])
+del subjects[-1] #del(subjects[-1]) 또는 subjects.pop[-1]
+#pop은 숫자 입력이 없으면 맨 뒤에서부터 지워버림.
+print(subjects)
+
+print()
+
+# subjects.clear() # 전부 다 지워버림.
+print("Java" in subjects) # Java가 subject 리스트 안에 있으면 True 없으면 False
+
+friedns = ["H","P","L"]
+print(friedns)
+friedns.sort() #정렬하는 것이다. 원본을 바꾸는 것이다.
+print(friedns)
+friedns.sort(reverse=True)
+print(friedns)
+copy_subjects = sorted(subjects) # 정렬된 사본을 만들 때 sorted를 이용한다.
+print(copy_subjects)
+print(subjects)
+
+#shallow copy & deep copy
