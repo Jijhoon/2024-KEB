@@ -1,26 +1,22 @@
-import copy
-subjects = ["a", ["b", "c"],  "d"]
-a = subjects
-b = subjects.copy()
-c = list(subjects)
-d = subjects[:]
-e = copy.deepcopy(a)
-print(subjects, a, b, c, d, e)
-subjects[1][1] = "x"
-print(subjects, a, b, c, d, e)
-#deep copy 새로운 메모리 공간을 줘서 원본을 바꿔도 더 이상 바뀌지 않음.
-#[expression for item in iterable] 정말 많이 사용한다!
-number_list = [number for number in range(1,6)]
-print(number_list)
+sugang = dict(python = "kim", cpp = "sung", db = "kang")
+# print(sugang)
+# sugang['datastructure'] = 'kim' # key와 value를 추가함.
+# print(sugang)
+# sugang['datastructure'] = 'park' #update
+# print(sugang)
+# print(sugang['db'])
+# print(sugang.get('db'))
+# print(sugang.get('opensource', 'not exist')) #앞에 있는 key가 dict에 존재하지 않을 때 뒤에 있는 값을 return함 있으면 value 나옴.
+for subject, professor in sugang.items(): # 순서는 다르게 나올지 몰라도 두개를 같이 추출.
+    print(f'{subject}과목 담당교수는 {professor}입니다.')
 
-squares = list()
-squares.append(1*1)
-print(squares)
+for k in sugang.keys(): # key만 추출
+    print(k)
 
-square = list()
-for i in range (1, 5, 1):
-    squares.append(i*i)
-print(square)
+print()
 
-#  i*i for in range(1, 6, 1):
+for v in sugang.values(): # value만 추출
+    print(v)
 
+for s in sugang.items(): # tuple로 return
+    print(s)
