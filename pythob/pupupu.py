@@ -1,22 +1,45 @@
-sugang = dict(python = "kim", cpp = "sung", db = "kang")
-# print(sugang)
-# sugang['datastructure'] = 'kim' # key와 value를 추가함.
-# print(sugang)
-# sugang['datastructure'] = 'park' #update
-# print(sugang)
-# print(sugang['db'])
-# print(sugang.get('db'))
-# print(sugang.get('opensource', 'not exist')) #앞에 있는 key가 dict에 존재하지 않을 때 뒤에 있는 값을 return함 있으면 value 나옴.
-for subject, professor in sugang.items(): # 순서는 다르게 나올지 몰라도 두개를 같이 추출.
-    print(f'{subject}과목 담당교수는 {professor}입니다.')
+import random
 
-for k in sugang.keys(): # key만 추출
-    print(k)
+drinks_foods = {
+    "whiskey" : "chocolate",
+    "wine" : "cheese",
+    "soju" : "samgyeopsal",
+    "goryangju" : "lamb skewers"
+    }
+#del drinks_foods["whiskey"]
+drinks_foods["beer"] = "snack"
+# drink = input(drinks_food.keys())
+drinks_foods_keys = list(drinks_foods)
+# print(drinks_food_keys)
+#print(random.choice(drinks_foods_keys)) #random으로 key 나오기.
+while True:
+    menu = input('select following menu in number.'
+                 f'\n1){drinks_foods_keys[0]} '
+                 f'2){drinks_foods_keys[1]} '
+                 f'3){drinks_foods_keys[2]} '
+                 f'4){drinks_foods_keys[3]} '
+                 f'5){drinks_foods_keys[4]} '
+                 '6)random '
+                 '7)quit'
+                 '\n : '
+                 )
+    if menu == '1':
+        print(f'{drinks_foods_keys[0]} is best when enjoy with {drinks_foods[drinks_foods_keys[0]]}')
+    elif menu == '2':
+        print(f'{drinks_foods_keys[1]} is best when enjoy with {drinks_foods[drinks_foods_keys[1]]}')
+    elif menu == '3':
+        print(f'{drinks_foods_keys[2]} is best when enjoy with {drinks_foods[drinks_foods_keys[2]]}')
+    elif menu == '4':
+        print(f'{drinks_foods_keys[3]} is best when enjoy with {drinks_foods[drinks_foods_keys[3]]}')
+    elif menu == '6':
+        random_drink = random.choice(drinks_foods_keys)
+        print(f'{random_drink} is best when enjoy with {drinks_foods[random_drink]}')
+    elif menu == '5':
+        print(f'{drinks_foods_keys[4]} is best when enjoy with {drinks_foods[drinks_foods_keys[4]]}')
+    elif menu == '7':
+        print("system off")
+        break
 
-print()
 
-for v in sugang.values(): # value만 추출
-    print(v)
-
-for s in sugang.items(): # tuple로 return
-    print(s)
+    else:
+        print("That's ill-advised number")
