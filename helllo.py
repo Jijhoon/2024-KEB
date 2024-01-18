@@ -1,61 +1,15 @@
-while True :
-    menu = input(
-        "\n\n1)Fahrenheit -> Celsius "
-        "\n2)Celsius -> Fahrenheit "
-        "\n3)check the prime number"
-        "\n4)check the prime number of section"
-        "\n5)quit"
-        "\nwrite what you want : "
-        )
-    if menu == '1' :
-        Fahrenheit = float(input('Input Fahrenheit : '))
-        print(f'\nFahrenheit : {Fahrenheit}F, Celsius : {((Fahrenheit-32.0) * 5/9):.4f}C')
-        print(menu)
-    elif menu == '2' :
-        Celsius = float(input('Input Celsius : '))
-        print(f'\nCelsius : {Celsius}C, Fahrenheit : {((Celsius*9/5) +32.0):.4f}F')
-        print(menu)
-    elif menu == '3':
-       number = int(input("press any number: "))
-       is_prime = True
-       if number < 2:
-           print(f"{number} is NOT prime number")
-       else :
-           for i in range(2, number):
-               if number % i == 0:
-                   is_prime = False
+univ ="inha university"
+counts_alphabet = {letter: univ.count(letter) for letter in univ}
+print(counts_alphabet) # {'i': 3, 'n': 2, 'h': 1, 'a': 1, ' ': 1, 'u': 1, 'v': 1, 'e': 1, 'r': 1, 's': 1, 't': 1, 'y': 1}
 
-           if is_prime:
-               print(f"{number}is prime number")
-           else:
-               print(f"{number}is NOT prime number")
+#같은 결과 다른 방법 위에꺼는 dictionary의 축약형이 가능한 것을 보여준다.
+counts_alphabet = dict()
+for letter in univ:
+    counts_alphabet[letter] = univ.count(letter)
+print(counts_alphabet) # {'i': 3, 'n': 2, 'h': 1, 'a': 1, ' ': 1, 'u': 1, 'v': 1, 'e': 1, 'r': 1, 's': 1, 't': 1, 'y': 1}
 
-    elif menu == '4':
-        numbers = input("Input first second number : ").split()
-        n1 = int(numbers[0])
-        n2 = int(numbers[1])
-
-        if n1 > n2:
-            n1, n2 = n2, n1
-
-        for number in range(n1, n2 + 1):
-            is_prime = True
-
-            if number < 2:
-                # pass
-                continue
-            else:
-                for i in range(2, number):
-                    if number % i == 0:
-                        is_prime = False
-                        break
-
-                if is_prime: print(number, end=' ')
-        print()
-    elif menu == '5':
-        print('Terminate Program.')
-        break
-
-
-    else:
-        print('You write the wrong number. Try again!')
+# Assignment ex) 8.10
+squares = {n: pow(n, 2) for n in range(10)} # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+#squares = {n: n**2 for n in range(10)} # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+#squares = {n: n*n for n in range(10)} # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+print(squares)
