@@ -1,43 +1,51 @@
-def outer(a, b):
-    def inner(c, d):
-        return c + d
-    return inner(a, b)
-print(outer(4, 6)) # 10
+# prime number with function
+def isprime(n) -> bool:
+    """
+    매개변수로 넘겨 받은 수가 소수인지 여부를 boolean으로 리턴
+    :param n: 판정할 매개변수
+    :return: 소수면 True, 소수가 아니면 False
+    """
+    if n < 2:
+        return False
+    else:
+        i = 2
+        while i*i <= n:
+            if n % i == 0:
+                return False
+            i += 1
+        return True
 
-def out(word):
-    def inn(quote):
-        return "HiHi It's a nice day, '%s' "%quote
-    return inn(word)
 
-print(out(('MEMEME'))) #HiHi It's a nice day, 'MEMEME'
+while True:
+    menu = input("1) Fahrenheit -> Celsius   2) Celsius -> Fahrenheit   3) Prime1   4) Prime2   5) Quit program : ")
 
-# def out_func(nout):
-#     def inner_func(nin):
-#         return nin * nin
-#     return inner_func(nout)
-# print(out_func(5))
-#closures 안에 들어있는 함수의 주소를 가져옴. 변수 하나를 정해서 내부의 function으로 만들 수 있음.
-def out_func(nout):
-    def inner_func():
-        return nout * nout
-    return inner_func
-x = out_func(9) #closures에서 중요한 것은 외부함수에서의 argument를 내부함수가 copy해서 작동한다는 것이다.
-print(type(x)) #<class 'function'>
+    if menu == '1':
+        fahrenheit = float(input('Input Fahrenheit : '))
+        print(f'Fahrenheit : {fahrenheit}F, Celsius : {((fahrenheit-32.0)*5.0/9.0):.4f}C')
+    elif menu == '2':
+        celsius = float(input('Input Celsius : '))
+        print(f'Celsius : {celsius}C, Fahrenheit : {((celsius*9.0/5.0)+32.0):.4f}F')
+    elif menu == '3':
+        number = int(input("Input number : "))
+        if isprime(number):
+            print(f'{number} is prime number')
+        else:
+            print(f'{number} is NOT prime number!')
+    elif menu == '4':
+        n1, n2 = map(int, input("Input first second number : ").split())
+        # numbers = input("Input first second number : ").split()
+        # n1 = int(numbers[0])
+        # n2 = int(numbers[1])
+        n1, n2 = min(n1, n2), max(n1, n2)
+        # if n1 > n2:
+        #     n1, n2 = n2, n1
 
-print()
-
-print(x) #<function out_func.<locals>.inner_func at 0x0000025B348EF060>
-
-print()
-
-print(x()) #81 -> x는 함수이기 때문에 소괄호를 포함해야 작동한다.
-
-numbes = ["-7", "11", "3"]
-print(sum(map(int, numbes)))
-
-#같은 결과 더 긴 방법
-numbes = ["-7", "11", "3"]
-hap = 0
-for number in numbes:
-    hap = hap + int(number)
-print(hap)
+        for number in range(n1, n2 + 1):
+            if isprime(number):
+                print(number, end=' ')
+        print()
+    elif menu == '5':
+        print('Terminate Program.')
+        break
+    else:
+        print('Invalid Menu!')
