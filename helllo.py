@@ -1,24 +1,36 @@
 class Pokemon:
-    pass
     def __init__(self, name):
-        self.name = name  #pikachu.name = "피카츄" , squirtle.name = "꼬부기" // 객체를 생성할 때 호출되는 영역.
-        print(f"production of poketmonster of {name}") # pikachu = Pokemon("피카츄") 이렇게 넣어준다.
+        self.name = name
+
     def attack(self, target):
         print(f"{self.name}이(가) {target.name}을(를) 공격!")
-pikachu = Pokemon("피카츄") # init은 각 개체마다 딱 한 번 이름을 지어주는 것이다.
-squirtle = Pokemon("꼬부기")
-charizard = Pokemon("리자몽")
 
-pikachu.nemesis = squirtle
-print(pikachu.name)
-print(pikachu.nemesis.name)
-print(squirtle.name)
+#class Pikachu:
+class Pikachu(Pokemon):  # is-a
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
 
-# print()
-# charizard.attack(squirtle)
-#  # is a : 상속 관계 (Inherent) // has a : 연관 관계 // use a : 사용관계
-class Pikachu(Pokemon): # is -a 피카츄는 포켓몬이다.
+    def attack(self, target):
+        print(f"{self.name}이(가) {target.name}을(를) {self.type} 공격!")
+
+    def electric_info(self):
+        print("전기 계열의 공격을 합니다")
+
+
+class Squirtle(Pokemon):  # is-a
     pass
-p1 = Pikachu("피카츄")
-print(p1.name)
 
+class Agumon:
+    pass
+
+p1 = Pikachu("피카츄", "전기")
+p2 = Squirtle("꼬부기")
+p3 = Pokemon("아무개")
+p1.electric_info()
+#p3.electric_info()  # AttributeError: 'Pokemon' object has no attribute 'electric_info'
+p1.attack(p2)
+p2.attack(p1)
+print(p1.name, p1.type)
+print(issubclass(Pikachu, Pokemon))
+print(issubclass(Agumon, Pokemon))
