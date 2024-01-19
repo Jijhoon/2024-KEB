@@ -1,25 +1,14 @@
-import random
-numbers = list
-# for i in range(5):
-#     numbers.append(random.randint(1, 100))
-class OopsException(Exception):
-    pass
-numbers = [random.randint(1, 100) for i in range(10)]
-print(numbers)
-try:
-    pick = int(input(f"Input idex (0 ~ {len(numbers)-1}): "))
-    print(numbers[pick])
-    # print((5/0))
-    raise OopsException("Oops~~~~") # 객체를 강제로 던져버림. 밑에서 누군가 받아야하는데 그때 받는 것이 else다.
-except IndexError as err:
-    print(f"Wrong index number\n{err}")
-except ValueError as rre:
-    print(f"Write the number\n{rre}")
-except ZeroDivisionError as zero:
-    print(f"Zero can't be division{zero}")
-except OopsException as eee:
-    print(f"No way! {eee}")
-except Exception as new:
-    print(f"You find the new Error!\n{new}")
-else:
-    print("Program terminate")
+def desc(a):
+    def wrapper(): # 내부의 함수는 별도의 공간을 가지고 있어서 외부함수를 그냥 실행시켜도 return되지 않음.
+        print("booboobooboo")
+        a()
+    # print("a")
+    return wrapper
+ #desc()   #실행시키면 a만 나옴.
+@desc
+def something():
+    print("do something")
+
+something()
+# s = desc(something) // 변수지정을 함으로써 내부의 함수를 작동시킬 수 있다. 내부함수는 외부함수에대한 정보를 받아들이는 것이다.
+# s()
