@@ -1,46 +1,75 @@
-class FlyingMixin:
-    def fly(self):
-        return f"{self.__name}이(가) 하늘을 훨훨 날아갑니다~"
-
-class SwimmingMixin:
-    def swim(self):
-        return f"{self.__name}이(가) 수영을 합니다."
-
 class Pokemon:
     def __init__(self, name):
-        self.__name = name
+        self.name = name
+    def attack(self, target):
+        print(f"{self.name} attacked {target.name}!")
 
-    def attack(self):
-        print("공격~")
+class Flame:
+    def flamethrower(self,target):
+        print(f"{self.name} use the skill 'Flamethrower' to {target}")
+class Electric:
+    def thunderbolt(self, target):
+        print(f"{self.name} use the skill 'Thunderbolt' to {target}")
+class Water:
+    def water_Pulse(self, target):
+        print(f"{self.name} use the skill 'Water Pulse' to {target}")
+class Normal:
+    def arm_Thrust(self, target):
+        print(f"{self.name} use the skill 'Arm Thrust' to {target}")
+class Dragon:
+    def hyper_beam(self, target):
+        print(f"{self.name} use the skill '	Hyper Beam' to {target}")
 
-    @property
-    def name(self):
-        return self.__name
+class Charmander(Pokemon, Flame):
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
 
-    @name.setter
-    def name(self, new_name):
-        self.__name = new_name
+class Pikachu(Pokemon, Electric):
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
+class Squitle(Pokemon, Water):
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
+class Dialga(Pokemon, Dragon):
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
 
-    #name = property(get_name, set_name)
+class Mareep(Pokemon, Electric):
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
+class Octillery(Pokemon, Water):
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
+class Houndoom(Pokemon, Flame):
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
+class Snorlax(Pokemon, Normal):
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
+class Rayquaza(Pokemon, Dragon):
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
 
+p1 = Charmander("Charmander", "Flame" )
+p2 = Pikachu("Pikachu", "Electric" )
+p3 = Squitle("Squitle", "Water" )
+p4 = Dialga("Dialga", "Dragon" )
 
-class Charizard(Pokemon, FlyingMixin):
-    pass
+e1 = Mareep("Mareep", "Electric" )
+e2 = Octillery("Octillery", "Water" )
+e3 = Houndoom("Houndoom", "Flame" )
+e4 = Snorlax("Snorlax", "Normal" )
+e5 = Rayquaza("Rayquaza", "Dragon" )
+print(p1)
 
-class Gyarados(Pokemon, SwimmingMixin):
-    pass
-
-g1 = Gyarados("갸라도스")
-c1 = Charizard("리자몽")
-
-# print(g1.get_name())
-# g1.set_name("잉어킹")
-# print(g1.get_name())
-
-# property 3rd
-print(g1.name)
-#print(g1.__name)  # direct access X
-#g1._Pokemon__name = "잉어킹"
-g1.name = "잉어킹"
-#g1.__name = "잉어킹"
-print(g1._Pokemon__name)  # 사실 상 private 개념은 없는 걸로
+Pokemon.attack(p1, e2)
+flamethrower
