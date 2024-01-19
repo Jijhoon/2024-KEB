@@ -1,18 +1,22 @@
-class Animal:
-    def says(self):
-        return '아이 엠 동물'
-class Horse(Animal):
-    pass
+class FlyingMixin:
+    def fly(self):
+        return f"{self.name}이(가) 하늘을 납니다."
 
-class Donkey(Animal):
+
+class SwmmingMixin:
+    def swim(self):
+        return f"{self.name}이(가) 수영을 합니다."
+
+
+class Pokemon:
+    def __init__(self, name):
+        self.name = name
+
+class Charizard(Pokemon, FlyingMixin):
     pass
-class Mule(Donkey, Horse):
+class Gyarados(Pokemon, SwmmingMixin):
     pass
-class Hinny(Horse, Donkey):
-    # def says(self):
-    #     return '버새 버새' # 없으면 계속 거슬러 올라간다.
-    pass
-m1 = Mule()
-h1 = Hinny()
-print(Hinny.__mro__)
-print(h1.says())
+g1 = Gyarados("갸라도스")
+c1 = Charizard("리자몽")
+print(c1.fly())
+print(g1.swim())
