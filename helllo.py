@@ -59,7 +59,7 @@ class Rayquaza(Pokemon, Dragon):
     def __init__(self, name, _type):
         super().__init__(name)
         self._type = _type
-        super().__init__(_type)
+
 
 p1 = Charmander("Charmander", "(Flame)" )
 p2 = Pikachu("Pikachu", "(Electric)" )
@@ -82,7 +82,7 @@ elif enemy == 3:
 elif enemy == 4:
     enemy = e4.name + e4._type
 elif enemy == 5:
-    enemy = e5.name+ e5._type
+    enemy = e5.name + e5._type
 
 else:
     print("Rewrite the number.")
@@ -105,14 +105,14 @@ print("I will tell you some information.\t"
       f"3) {p3.name + p3._type}\t"
       f"4) {p4.name + p4._type}\t"
       )
-print("\n\nNow, let's go on a adventure")
+print("\n\nNow, let's go on a adventu`re")
 selection = input("1)To the Forest 2)To the Jungle 3)To the Desert\n Where do you want to go? : ")
 if int(selection) == 1:
     print(f"A wild {enemy} appeared.")
 elif int(selection) == 2:
     print(f"A wild {enemy} appeared.")
 elif int(selection) == 3:
-    print(f"A wild {enemy} appeared.")
+    print(f"A wild {enemy} appeared.")`
 
 meeting = int(input("What will you do? \n1)Fight 2)Runway \n :"))
 if meeting == 1:
@@ -147,7 +147,7 @@ if meeting == 1:
             Pokemon.attack(p4, enemy)
         elif battle1 == 2:
             Dragon.hyper_beam(p4, enemy)
-# 지금 enemy로 dragon이 나오면 (dragon)(dragon)으로 표기되고 있다 오류를 찾아보자.
+
 
 
 
