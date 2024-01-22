@@ -1,92 +1,71 @@
+class FlyingBehavior:
+    def fly(self):
+        return f"하늘을 훨훨 날아갑니다~"
+
+
+class JetPack(FlyingBehavior):
+    def fly(self):
+        return f"로켓추진기로 하늘을 날아갑니다!"
+
+
+class NoFly(FlyingBehavior):
+    def fly(self):
+        return f"하늘을 날 수 없습니다."
+
+
+class FlyWithWings(FlyingBehavior):
+    def fly(self):
+        return f"날개로 하늘을 훨훨 날아갑니다"
+
+
+class SwimmingBehavior:
+    def swim(self):
+        return f"{self.__name}이(가) 수영을 합니다."
+
 class Pokemon:
-    def __init__(self, name):
-        self.name = name
-    def attack(self, target):
-        print(f"{self.name} attacked {target.name}!")
+    def __init__(self, name, hp, fly):
+        self.__name = name
+        self.hp = hp
+        self.fly_behavior = fly  # aggregation (has-a)
 
-class Flame:
-    def flamethrower(self,target):
-        print(f"{self.name} used the skill 'Flamethrower' on {target.name}")
-class Electric:
-    def thunderbolt(self, target):
-        print(f"{self.name} used the skill 'Thunderbolt' on {target.name}")
-class Water:
-    def water_Pulse(self, target):
-        print(f"{self.name} used the skill 'Water Pulse' on {target.name}")
-class Normal:
-    def arm_Thrust(self, target):
-        print(f"{self.name} used the skill 'Arm Thrust' on {target.name}")
-class Dragon:
-    def hyper_beam(self, target):
-        print(f"{self.name} used the skill 'Hyper Beam' on {target.name}")
+    def set_fly_behavior(self):
+        self.fly_behavior = fly
 
-class Charmander(Pokemon, Flame):
-    def __init__(self, name, _type):
-        super().__init__(name)
-        self._type = _type
-class Pikachu(Pokemon, Electric):
-    def __init__(self, name, _type):
-        super().__init__(name)
-        self._type = _type
-class Squitle(Pokemon, Water):
-    def __init__(self, name, _type):
-        super().__init__(name)
-        self._type = _type
-class Dialga(Pokemon, Dragon):
-    def __init__(self, name, _type):
-        super().__init__(name)
-        self._type = _type
+    def attack(self):
+        print("공격~")
 
-class Mareep(Pokemon, Electric):
-    def __init__(self, name, _type):
-        super().__init__(name)
-        self._type = _type
-class Octillery(Pokemon, Water):
-    def __init__(self, name, _type):
-        super().__init__(name)
-        self._type = _type
-class Houndoom(Pokemon, Flame):
-    def __init__(self, name, _type):
-        super().__init__(name)
-        self._type = _type
-class Snorlax(Pokemon, Normal):
-    def __init__(self, name, _type):
-        super().__init__(name)
-        self._type = _type
-class Rayquaza(Pokemon, Dragon):
-    def __init__(self, name, _type):
-        super().__init__(name)
-        self._type = _type
-        super().__init__(_type)
+    @property
+    def name(self):
+        return self.__name
 
-p1 = Charmander("Charmander", "Flame" )
-p2 = Pikachu("Pikachu", "Electric" )
-p3 = Squitle("Squitle", "Water" )
-p4 = Dialga("Dialga", "Dragon" )
+    @name.setter
+    def name(self, new_name):
+        self.__name = new_name
 
-e1 = Mareep("Mareep", "Electric" )
-e2 = Octillery("Octillery", "Water" )
-e3 = Houndoom("Houndoom", "Flame" )
-e4 = Snorlax("Snorlax", "Normal" )
-e5 = Rayquaza("Rayquaza", "Dragon" )
+    # magic method
+    def __str__(self):
+        return self.__name + " 입니다"
 
-print(p1.name + "(" + p1._type + ")")
-# Flame.flamethrower(e3, p1)
-# Pokemon.attack(p1, e2)
-import os
+    def __add__(self, target):
+        #return self.__name + " + " + target.__name
+        return f"두 포켓몬스터 체력의 합은 {self.hp + target.hp}입니다."
 
-if input("Press Enter to Continue \n"):
-    next
 
-print("Nice to meet you\n Could you tell me what your name is?")
-master = input()
+class Charizard(Pokemon):
+    pass
 
-print(f"{master}... It's cool. ")
-print()
-print("I will tell you some information."
-      "You have 4 Pokemons\n"
-      f"1) {p1.name + '(' + p1._type + ')'}\t"
-      f"2) {p2.name + '(' + p2._type + ')'}\t"
-      f"3) {p3.name + '(' + p3._type + ')'}\t"
-      f"4) {p4.name + '(' + p4._type + ')'}\t"
-      )
+class Pikachu(Pokemon):
+    pass
+
+nofly = NoFly()
+p1 = Pikachu("피카츄", 35, nofly)  # LSP
+wings = FlyWithWings()
+c1 = Charizard("리자몽", 120, wings)  # LSP
+print(c1.fly_behavior.fly())
+print(p1.fly_behavior.fly())
+print(p1)
+print(c1)
+print(p1+c1)
+#print(g1+200)
+p1.set_fly_behavior(JetPack())
+print(p1.set_fly_behavior.fly())
