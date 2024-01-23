@@ -12,7 +12,7 @@ class Pokemon:
             e3.hp -= damage
             e4.hp -= damage
             e5.hp -= damage
-            print(e1.hp, e2.hp, e3.hp, e4.hp, e5.hp) #???????????
+            print(e1.hp, e2.hp, e3.hp, e4.hp, e5.hp) # 어떻게 개별로 나눌까.???????????
 
         except:
             pass
@@ -64,22 +64,22 @@ class Mareep(Pokemon, Electric, Endure):
     def __init__(self, name, _type, hp):
         super().__init__(name)
         self._type = _type
-        self.hp = hp
+        self.hp = int(hp)
 class Octillery(Pokemon, Water, Endure):
     def __init__(self, name, _type, hp):
         super().__init__(name)
         self._type = _type
-        self.hp = hp
+        self.hp = int(hp)
 class Houndoom(Pokemon, Flame, Endure):
     def __init__(self, name, _type, hp):
         super().__init__(name)
         self._type = _type
-        self.hp = hp
+        self.hp = int(hp)
 class Snorlax(Pokemon, Normal, Endure):
     def __init__(self, name, _type, hp):
         super().__init__(name)
         self._type = _type
-        self.hp = hp
+        self.hp = int(hp)
 class Rayquaza(Pokemon, Dragon, Endure):
     def __init__(self, name, _type, hp):
         super().__init__(name)
@@ -92,23 +92,23 @@ p2 = Pikachu("Pikachu", "(Electric)", "40")
 p3 = Squitle("Squitle", "(Water)", "40")
 p4 = Dialga("Dialga", "(Dragon)", "100")
 
-e1 = Mareep("Mareep", "(Electric)", "30")
-e2 = Octillery("Octillery", "(Water)", "30")
-e3 = Houndoom("Houndoom", "(Flame)", "50")
-e4 = Snorlax("Snorlax", "(Normal)", "60")
-e5 = Rayquaza("Rayquaza", "(Dragon)", "80")
+e1 = Mareep("Mareep", "(Electric)", 30)
+e2 = Octillery("Octillery", "(Water)", 30)
+e3 = Houndoom("Houndoom", "(Flame)", 50)
+e4 = Snorlax("Snorlax", "(Normal)", 60)
+e5 = Rayquaza("Rayquaza", "(Dragon)", 80)
 
 enemy = random.randint(1,5)
 if enemy == 1:
-    enemy = e1.name + e1._type + e1.hp
+    enemy = e1.name + e1._type + "e1.hp"
 elif enemy == 2:
-    enemy = e2.name + e2._type + e2.hp
+    enemy = e2.name + e2._type + "e2.hp"
 elif enemy == 3:
-    enemy = e3.name + e3._type + e3.hp
+    enemy = e3.name + e3._type + "e3.hp"
 elif enemy == 4:
-    enemy = e4.name + e4._type + e4.hp
+    enemy = e4.name + e4._type + "e4.hp"
 elif enemy == 5:
-    enemy = e5.name + e5._type + e5.hp
+    enemy = e5.name + e5._type + "e5.hp"
 
 else:
     print("Rewrite the number.")
@@ -156,10 +156,12 @@ while True:
             battle1 = int(input("1)Attack 2)skill \n What is your next behavior? : "))
             if battle1 == 1:
                 Pokemon.attack(p1, enemy)
-                print(f"You did 15 damage to the {enemy}.")
 
             elif battle1 == 2:
                 Flame.flamethrower(p1, enemy)
+            #  if e1.hp <= 0:
+            #     print("You win!!!")
+            #     break  이걸 어디다 넣어야 할까ㅓ....
 
         while battle == 2:
             battle1 = int(input("1)Attack 2)skill \n What is your next behavior? : "))
@@ -185,7 +187,7 @@ while True:
 
 
     else:
-        print("You are lost...")
+        print("You are lost...\n You lose...")
         break
 
 
