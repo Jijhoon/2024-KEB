@@ -100,7 +100,7 @@ class Master:
 
     def show_pokemons(self):
         for pokemon in self.pokemons:
-            print(f"{pokemon.name} {pokemon._type} {pokemon.hp}", end="\t")
+            print(f"{pokemon.name} {pokemon.pokemon_type} {pokemon.hp}", end="\t")
 
 
 def get_random_enemy():
@@ -150,7 +150,11 @@ def main():
         pokemon = master.pokemons[choice - 1]
 
         while True:
-            pass
+            pokemon.attack(enemy.name)
+            if enemy.hp <= 0:
+                print("You win!!!")
+
+                break
 
     elif choice == 2:
         print("You are lost...\n You lose...")
