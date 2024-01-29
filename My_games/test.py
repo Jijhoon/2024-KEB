@@ -6,7 +6,11 @@ import random
 # for i in range(0,len(number)):
 #     number[i] = int(number[i])
 # print(number)
-a = list(input())
+a = map(list, input("input:"))
+b = map(list, [1, 3, 5, 6])
 for i in range(0, 4):
     a[i] = int(a[i])
-print(a)
+if a in b:
+    print("yes!")
+else:
+    print("No!")
