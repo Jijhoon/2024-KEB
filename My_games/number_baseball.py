@@ -2,29 +2,31 @@ import random
 
 
 class Digits_checker:
-    def digit_check(self, user_try, game_digits):  # TODO: 유저가 입력한 숫자와 랜덤숫자의 자릿수가 다르다면 자릿수가 다르다고 출력. 같으면 strike ball out 출력.
+    def digit_check(self, user_try, game_digits):
         cnt_s = 0
         cnt_b = 0
         if user_input_digits != len(game_digits):
             return "The number of digits is different!"
 
         if user_try == game_digits:
-            print(f"{user_name}, you win!!!\n Your score is ().\n CONGRATURAION!!")
-            exit()    
-        elif user_try != game_digits: #TODO: 지금은 하나라도 다를 떄 elif가 실행되는데 모두가 다를 때 OUT이 나오도록 만들어보자.
+            print(
+                f"{user_name}, you win!!!\n Your score is ().\n CONGRATURAION!!"
+            )  # 점수 추가하기.
+            exit()
+        elif user_try != game_digits:
             for x in range(0, user_input_digits):
                 if user_try[x] == game_digits[x]:
                     cnt_s += 1
                 elif user_try[x] in game_digits:
                     cnt_b += 1
+        if cnt_s == 0 and cnt_b == 0:
+            return "OUT!\n"
+        else:
             return f"You have {cnt_s}-strike and {cnt_b}-ball!\n"
-        
-                         
-                
-            
-            
-            
 
+
+sequence = 1
+n = 1
 if __name__ == "__main__":
     while True:
         start = input("Do you want to play number baseball game? (Y / N)\n:").casefold()
@@ -44,20 +46,28 @@ if __name__ == "__main__":
             if user_input_digits > 0:
                 break
             else:
-                print("Please write a integer of plus")
-        except:
-            print("Please write a integer of plus")
+                print("Please write a positive integer")
+        except ValueError:
+            print("Please write a positive integer")
+    if user_input_digits >= 10:
+        game_digits = [random.randint(0, 9) for i in range(user_input_digits)]
+        game_digits[0] = random.randint(1, 9)  # NOTE: 게임에서 정한 랜덤 숫자리스트 = game_digits
+    elif user_input_digits < 10:
+        game_digits = [random.randint(0, 9) for i in range(user_input_digits)]
+        game_digits[0] = random.randint(1, 9)
+        for i in range(1, user_input_digits):
+            while True:
+                if game_digits[i] in game_digits[:i]:
+                    game_digits[i] = random.randint(0, 9)
+                else:
+                    break
 
-    game_digits = [random.randint(0, 9) for i in range(user_input_digits)]
-    game_digits[0] = random.randint(1, 9)  # NOTE: 게임에서 정한 랜덤 숫자리스트 = game_digits
-    sequence = 1
-
+   
     while True:
         print(game_digits)
-        n = 0
+
         for i in range(0, 5):
             while True:
-                n += 1
                 if n == 1:
                     ordinal_number = "st"
                 elif n == 2:
@@ -66,8 +76,11 @@ if __name__ == "__main__":
                     ordinal_number = "rd"
                 elif n >= 4:
                     ordinal_number = "th"
+
                 if i == 1:
-                    user_try = list(input(f"Your {sequence}{ordinal_number} attempt: "))
+                    user_try = list(
+                        input(f"Your {sequence}{ordinal_number} attempt: ")
+                    )  # TODO: 반복되는 것들을 함수로 처리하자.
                     if len(user_try) != len(game_digits):
                         print("The number of digits is different!")
                         break
@@ -108,3 +121,4 @@ if __name__ == "__main__":
                     sequence += 1
                     checking = Digits_checker()
                     print(checking.digit_check(user_try, game_digits))
+                n += 1
